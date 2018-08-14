@@ -4,6 +4,11 @@
 
 -----
 
+## 安装
+```
+composer require Components/Utils
+```
+
 ## 数组相关
 
 - use Components\Utils\Funcs\ArrayFunc
@@ -16,6 +21,7 @@
 	- `$default` 如果不存在的返回值
 - 返回值：如果路径存在则返回元素值，否则返回`$default`
 - 示例：
+
 ```php
 <?php
 
