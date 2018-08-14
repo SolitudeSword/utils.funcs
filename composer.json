@@ -1,0 +1,28 @@
+{
+    "name": "Components/Utils",
+    "description": "一些公共函数",
+    "homepage": "http://172.16.0.245:2345/Components/utils.funcs",
+    "type": "library",
+    "authors": [
+        {
+            "name": "wangj",
+            "email": "wangj@2345.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Components\\Utils\\Funcs\\": "src/main/Utils/Funcs"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Components\\Utils\\Funcs\\": "src/test/Utils/Funcs"
+        }
+    }
+}
