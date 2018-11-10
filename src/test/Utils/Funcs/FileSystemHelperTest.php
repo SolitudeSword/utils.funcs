@@ -4,8 +4,19 @@ namespace Components\Utils\Funcs;
 
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class FileSystemHelperTest
+ * @package Components\Utils\Funcs
+ * FileSystemHelper 测试类
+ * @author 王锦
+ */
 class FileSystemHelperTest extends TestCase
 {
+    /**
+     * testDeleteDir
+     * 测试递归删除目录
+     * @return void
+     */
     public function testDeleteDir()
     {
         # 创建目录
@@ -42,6 +53,11 @@ class FileSystemHelperTest extends TestCase
         self::assertDirectoryNotExists($dir);
     }
 
+    /**
+     * testDeleteFile
+     * 测试删除文件
+     * @return void
+     */
     public function testDeleteFile()
     {
         $cacheFile = __DIR__ . "/../../../../cache/";
