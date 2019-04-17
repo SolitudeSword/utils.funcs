@@ -6,7 +6,7 @@
 
 ## 安装
 ```
-composer require Components/Utils
+composer require dreamcat/utils
 ```
 
 ## 数组相关

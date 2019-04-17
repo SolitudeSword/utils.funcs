@@ -1,5 +1,5 @@
 {
-    "name": "components/utils",
+    "name": "dreamcat/utils",
     "description": "一些公共函数",
     "homepage": "https://github.com/SolitudeSword/utils.funcs",
     "type": "library",
