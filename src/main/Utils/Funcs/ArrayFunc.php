@@ -21,22 +21,16 @@ class ArrayFunc
     public static function getArrayChild(array $array, string $path, $default = null)
     {
         $paths = explode("/", $path);
-        if (!strlen($path))
-        {
+        if (!strlen($path)) {
             return $array;
         }
         $ret = $array;
         # 这一段其实可以用eval，考虑到公司禁用此函数，换了实现方法
-        foreach ($paths as $item)
-        {
-            if (strlen($item))
-            {
-                if (isset($ret[$item]))
-                {
+        foreach ($paths as $item) {
+            if (strlen($item)) {
+                if (isset($ret[$item])) {
                     $ret = $ret[$item];
-                }
-                else
-                {
+                } else {
                     return $default;
                 }
             }

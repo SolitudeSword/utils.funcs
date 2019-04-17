@@ -1,7 +1,7 @@
 {
-    "name": "Components/Utils",
+    "name": "components/utils",
     "description": "一些公共函数",
-    "homepage": "http://172.16.0.245:2345/Components/utils.funcs",
+    "homepage": "https://github.com/SolitudeSword/utils.funcs",
     "type": "library",
     "authors": [
         {

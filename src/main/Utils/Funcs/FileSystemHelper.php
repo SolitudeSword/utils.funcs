@@ -19,44 +19,34 @@ class FileSystemHelper
      */
     public static function deleteDir(string $dirPath, bool $fileDelete = true): bool
     {
-        if (!is_dir($dirPath))
-        {
-            if ($fileDelete && file_exists($dirPath))
-            {
+        if (!is_dir($dirPath)) {
+            if ($fileDelete && file_exists($dirPath)) {
                 unlink($dirPath);
             }
             return !file_exists($dirPath);
         }
         $stack = [realpath($dirPath)];
-        while ($stack)
-        {
+        while ($stack) {
             $dir = array_pop($stack);
             $hasChildDir = false;
             $handle = opendir($dir);
-            for ($child = readdir($handle); $child; $child = readdir($handle))
-            {
-                if ($child == "." || $child == "..")
-                {
+            for ($child = readdir($handle); $child; $child = readdir($handle)) {
+                if ($child == "." || $child == "..") {
                     continue;
                 }
                 $fullChild = "{$dir}/{$child}";
-                if (is_dir($fullChild))
-                {
-                    if (!$hasChildDir)
-                    {
+                if (is_dir($fullChild)) {
+                    if (!$hasChildDir) {
                         $hasChildDir = true;
                         $stack[] = $dir;
                     }
                     $stack[] = $fullChild;
-                }
-                else
-                {
+                } else {
                     unlink($fullChild);
                 }
             }
             closedir($handle);
-            if (!$hasChildDir)
-            {
+            if (!$hasChildDir) {
                 rmdir($dir);
             }
         }

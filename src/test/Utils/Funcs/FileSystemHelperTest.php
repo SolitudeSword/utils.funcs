@@ -22,27 +22,21 @@ class FileSystemHelperTest extends TestCase
         # 创建目录
         $dir = __DIR__ . "/../../../../cache/" . uniqid("tmp_pre_delete");
         mkdir($dir, 0777, true);
-        for ($idx = 0; $idx < 100; ++$idx)
-        {
+        for ($idx = 0; $idx < 100; ++$idx) {
             $createFile = mt_rand(0, 1) == 1;
             $dep = mt_rand(1, 10);
             $ary = [];
-            for ($jdx = 0; $jdx < $dep; ++$jdx)
-            {
+            for ($jdx = 0; $jdx < $dep; ++$jdx) {
                 $ary[] = "sub_" . mt_rand(0, 10);
             }
             $path = $dir . "/" . implode("/", $ary);
-            if (!is_dir($path))
-            {
+            if (!is_dir($path)) {
                 mkdir($path, 0777, true);
             }
             $name = uniqid("_{$idx}");
-            if ($createFile)
-            {
+            if ($createFile) {
                 file_put_contents("{$path}/{$name}.txt", uniqid("", true));
-            }
-            else
-            {
+            } else {
                 mkdir("{$path}/{$name}");
             }
         }
@@ -61,8 +55,7 @@ class FileSystemHelperTest extends TestCase
     public function testDeleteFile()
     {
         $cacheFile = __DIR__ . "/../../../../cache/";
-        if (!file_exists($cacheFile))
-        {
+        if (!file_exists($cacheFile)) {
             mkdir($cacheFile, 0777, true);
         }
         $cacheFile .= "/cachetmp_" . uniqid() . ".txt";
